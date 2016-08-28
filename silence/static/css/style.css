@@ -1,0 +1,176 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+	font-size: 14px;
+}
+.main{
+	float: left;
+	width: 100%;
+	height: 100%;
+}
+a{
+	color: #333;
+	/*text-decoration: none;*/
+}
+a:hover{
+	color: #3CA5A0;
+}
+ul,li{
+	padding: 0px;
+	list-style: none;
+}
+img{
+	border: none;
+}
+dl{
+	margin-right: 10px;
+	margin-top: 10px;
+	float: left;
+}
+dt,dd{
+	float: left;
+	padding-right: 5px;
+}
+dd input{
+	margin-left: 10px;
+	margin-right: 2px;
+	width: 100px;
+	padding: 0px 2px;
+}
+
+.container{
+	width: 1160px;
+	height: 100%;
+	margin: 0px auto;
+	position: relative;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+
+/*main css*/
+.cm-top{
+	width: 100%;
+	height: 60px;
+	border-bottom: 1px solid #CCCCCC;
+	line-height: 60px;
+	/*padding-left: 50px;*/
+	
+}
+
+.cm-top a{
+	font-size: 16px;
+	display: inline-block;
+	margin-right: 20px;
+	text-decoration: none;
+}
+.cm-top a:first-child{
+	/*color: #1ABC9C;*/
+	/*border-bottom: 1px solid #1ABC9C;*/
+	margin-left: 50px;
+}
+.cm-top a:nth-child(2){
+	color: #1ABC9C;
+	border-bottom: 1px solid #1ABC9C;
+	/*margin-left: 50px;*/
+}
+.cm-top a:hover{
+	color: #3CA5A0;
+}
+.main-container{
+	width: auto;
+	height: auto;	
+	margin-left: 50px;
+	margin-bottom: 10px;
+	/*margin-right: 50px;*/
+}
+.main-container form{
+	width: 100%;
+	display: inline-block;
+}
+.userlist-container{
+	margin-top: 10px;
+	width: 60%;
+	/*border: solid #1ABC9C 1px;*/
+	height: 450px;
+	background-color: #EEF;
+	/*margin-bottom: 10px;*/
+	float: left;
+}
+.userlist{
+	margin-top: 10px;
+	text-align: center;
+	width: 100%;
+	line-height: 30px;
+}
+
+/*.userlist .userlisthead,.userlist .userlistdata{
+	line-height: 30px;
+	margin-bottom: 10px;
+}*/
+dd .iptr{
+	width: 20px;
+}
+
+.call-container{
+	width: 33%;
+	float: left;
+	height: 450px;
+}
+
+.callhistory{
+	float: left;
+	height: 50%;
+	/*display: inline-block;*/
+	margin-left: 30px;
+	margin-bottom: 10px;
+	width: 100%;
+	/*line-height: 30px;*/
+	/*position: absolute;*/
+}
+.newcall{
+	float: left;
+	height: 40%;
+	/*display: inline-block;*/
+	margin-left: 30px;
+	margin-bottom: 10px;
+	width: 100%;
+	/*line-height: 30px;*/
+	/*position: absolute;*/
+}
+.markdown{
+	width: 97%;
+	height: 100px;
+	margin-left: 0px;
+	margin-top: 10px;
+	/*margin-bottom: 10px;*/
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	resize: none;
+	/*float: left;*/
+}
+.pagination{
+    float: right;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+.callhistorysearch{
+	margin-left: 16px;
+	margin-top: 0px;
+}
+
+.searchprovresult{
+	width: 180px;
+	line-height: 25px;
+	height: 0px;/*156px*/
+	position: absolute;
+	background-color: #FFFFCC;
+	margin-left: 280px;
+	padding: 0px;
+	overflow: hidden;
+}

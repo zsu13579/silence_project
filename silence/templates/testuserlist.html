@@ -1,0 +1,178 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>个性化激活</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+		<script src="{% static 'js/jquery-1.11.1.min.js' %}" type="text/javascript" charset="utf-8"></script>
+		<script src="{% static 'js/index.js' %}" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body class="main">
+		<div class="cm-top">
+			<a href="/dashboard">仪表盘</a>
+			<a href="/silence" >个性激活</a>
+			<a href="/promotion">营销激活</a>
+		</div>
+		<div class="main-container">
+			<form action="/searchresult" method="get" class="search">
+				<dl>
+					<dt>用户号码:</dt>
+					<dd><input type="text" id="searchimsi" name="username" style="width: 120px;" value="{% if username %}{{ username }}{% endif %}"/></dd>
+				</dl>
+				<dl>
+					<dt>省公司:</dt>
+					<dd><input type="text" id="searchprov" name="provnm" value="{% if provnm %}{{ provnm }}{% endif %}" /></dd>
+				</dl>
+				<dl>
+					<dt>国家及地区:</dt>
+					<dd><input type="text" id="searchcountry" name="countrynm" value="{% if countrynm %}{{ countrynm }}{% endif %}" /></dd>
+				</dl>
+				<dl>
+					<dt>是否激活:</dt>
+					<dd><input type="radio" {% if isActivate == 0 %}checked="checked"{% endif %} name="isActivate" class="iptr" value="0"/>是<input type="radio" checked="checked" name="isActivate" class="iptr" value="1"/>否</dd>
+				</dl>
+				<input type="submit" value="查询" id="sbtusersearch" style="margin-top: 6px;width: 40px;float: left;"/>
+			</form>
+			<div class="searchprovresult">
+				
+				<a href="/silence" class="provcls">北京</a>
+				<a href="/silence" class="provcls">广东</a>
+				<a href="/silence" class="provcls">上海</a>
+				<a href="/silence" class="provcls">天津</a>
+				<a href="/silence" class="provcls">重庆</a>
+				<a href="/silence" class="provcls">辽宁</a>
+				<a href="/silence" class="provcls">江苏</a>
+				<a href="/silence" class="provcls">湖北</a>
+				<a href="/silence" class="provcls">四川</a>
+				<a href="/silence" class="provcls">陕西</a>
+				<a href="/silence" class="provcls">河北</a>
+				<a href="/silence" class="provcls">山西</a>
+				<a href="/silence" class="provcls">河南</a>
+				<a href="/silence" class="provcls">吉林</a>
+				<a href="/silence" class="provcls">黑龙江</a>
+				<a href="/silence" class="provcls">内蒙古</a>
+				<a href="/silence" class="provcls">山东</a>
+				<a href="/silence" class="provcls">安徽</a>
+				<a href="/silence" class="provcls">浙江</a>
+				<a href="/silence" class="provcls">福建</a>
+				<a href="/silence" class="provcls">湖南</a>
+				<a href="/silence" class="provcls">广西</a>
+				<a href="/silence" class="provcls">江西</a>
+				<a href="/silence" class="provcls">贵州</a>
+				<a href="/silence" class="provcls">云南</a>
+				<a href="/silence" class="provcls">西藏</a>
+				<a href="/silence" class="provcls">海南</a>
+				<a href="/silence" class="provcls">甘肃</a>
+				<a href="/silence" class="provcls">宁夏</a>
+				<a href="/silence" class="provcls">青海</a>
+				<a href="/silence" class="provcls">新疆</a>
+						
+			</div>
+
+			<!--search form end-->
+			<div class="userlist-container">
+				<table class="userlist">
+					<tr class="userlisthead">
+						<th>用户号码</th>
+						<th>省公司</th>
+						<th>漫游天数</th>
+						<th>最后话单时间</th>
+						<th>漫游国家地区</th>
+						<th>是否已激活</th>
+					</tr>
+		
+					{% for u in userList %}
+					<tr class="userlistdata">
+						<td><a href="/calldetail?username={{u.imsi}}">{{u.imsi}}</a></td>
+						<td>{{u.provnm}}</td>
+						<td>{{u.days}}</td>
+						<td>{{u.lastcalldt}}</td>
+						<td>{{u.country_list}}</td>
+						<td>
+							{% ifequal u.issilence 1 %}
+								否
+							{% else %}
+								是
+							{% endifequal %}
+						</td>
+					</tr>
+					{% endfor %}
+				</table>
+				<div class="pagination">
+		    		<span class="step-links">
+						{% if userList.has_previous %}
+							<a href="?page={{ userList.previous_page_number }}{% if username %}&username={{ username }}{% endif %}{% if request.GET.provnm %}&provnm={{ request.GET.provnm }}{% endif %}{% if request.GET.countrynm %}&countrynm={{ request.GET.countrynm }}{% endif %}{% if request.GET.isActivate %}&isActivate={{ request.GET.isActivate }}{% endif %}">previous</a>
+						{% endif %}
+						<span class="current">
+							Page {{ userList.number }} of {{ userList.paginator.num_pages }}.
+						</span>
+		
+						{% if userList.has_next %}
+							<a href="?page={{ userList.next_page_number }}{% if username %}&username={{ username }}{% endif %}{% if request.GET.provnm %}&provnm={{ request.GET.provnm }}{% endif %}{% if request.GET.countrynm %}&countrynm={{ request.GET.countrynm }}{% endif %}{% if request.GET.isActivate %}&isActivate={{ request.GET.isActivate }}{% endif %}">next</a>
+						{% endif %}
+					</span>
+				</div>
+			</div>
+			<!--userlist-container end-->
+			<div class="call-container">
+				<div class="callhistory">
+					<form action="/callsearchresult">
+						<p style="width: auto;font-weight: 600;margin: 10px 10px 0px 0px;line-height: 25px;float: left">外呼用户历史情况</p><p class="fl" style="margin: 10px 0px 0px 0px;line-height: 25px;">用户号码：</p><input type="text" placeholder="imsi" class="fl" id="callimsi1" style="margin: 10px 10px 3px 0px;height: 17px;width: 120px;" value="{% if username %}{{ username }}{% endif %}" name="username" />
+					    <p style="width: 100%;margin: 2px 0px;border-bottom: 1px solid #CCCCCC;line-height: 5px;float: left"></p>
+						<input type="submit" value="查询" style="margin: 10px 0px 2px 0px;font-size: 14px;height: 22px;width: 40px;margin-left: 10px;";/>
+					</form>
+					<!--call history search form end-->
+					<div class="callhistorysearch">
+						{% for call in callList %}
+						<h2 style="width: 100%;font-size: 12px;font-weight: 600;color: #0844A4; margin: 10px 0px;float: left;">{{ call.username }}&nbsp;&nbsp;{{ call.calldate | date:"Y年m月d日" }}&nbsp;{{ call.calldate | time:"H：i" }}</h2>
+						<p style="width: 100%;font-size: 12px;margin-bottom: 10px;float: left;">{{ call.memo }}</p>
+						<p style="width: 100%;margin: 2px 0px;border-bottom: 1px dotted #CCCCCC;line-height: 5px;float: left"></p>
+						{% endfor %}
+					</div>
+					<div class="pagination">
+			    		<span class="step-links">
+							{% if callList.has_previous %}
+								<a href="?page={{ callList.previous_page_number }}&username={{ username }}">previous</a>
+							{% endif %}
+							<span class="current">
+								Page {{ callList.number }} of {{ callList.paginator.num_pages }}.
+							</span>
+							{% if callList.has_next %}
+								<a href="?page={{ callList.next_page_number }}&username={{ username }}">next</a>
+							{% endif %}
+						</span>
+					</div>
+					<!--call history result end-->
+				</div>
+				<!--call history end-->
+				<!--<div class="newcall">
+					<p style="width: 100%;font-weight: 600;margin: 10px 0px;border-bottom: 1px solid #CCCCCC;line-height: 30px;">新增外呼用户记录</p>
+					<form action="/savecall" method="post">
+						{% csrf_token %}
+						<p style="float: left;">外呼人：</p><input type="text" name="callperson" style="float: left;width: 60px;" id="callpersonid" class="callpersoncls"/>
+						<p style="float: left;margin-left: 10px;display: none;">外呼日期：</p><input type="text" placeholder="20160504" style="float: left;width: 80px;font-size: 14px;display: none;" id="calldateid" class="calldatecls" />
+						<p style="float: left;margin-left: 10px;">用户号码：</p><input type="text" placeholder="imsi" name="callimsi2" id="callimsi2" class="callimsicls" style="float: left;width: 120px;font-size: 14px;" value="{% if username %}{{ username }}{% endif %}" />
+						<textarea class="markdown" id="memo" rows="2" cols="2" placeholder="请详细描述此次外呼情况" name="memo"></textarea>
+						<input type="submit" value="保存" style="width: 60px;height: 30px;float: right;margin-bottom: 0px;"/>
+					</form>
+				</div>-->
+				
+				<div class="newcall">
+					<p style="width: 100%;font-weight: 600;margin: 10px 0px;border-bottom: 1px solid #CCCCCC;line-height: 30px;">新增外呼用户记录</p>
+					<form action="/savecall" method="get">
+						{% csrf_token %}
+						<p style="float: left;">外呼人：</p><input type="text" name="callperson" style="float: left;width: 60px;" id="callpersonid" class="callpersoncls"/>
+						<p style="float: left;margin-left: 10px;">用户号码：</p><input type="text" placeholder="imsi" name="callimsi2" id="callimsi2" class="callimsicls" style="float: left;width: 120px;font-size: 14px;" value="{% if username %}{{ username }}{% endif %}" />
+						<textarea class="markdown" id="memo" rows="2" cols="2" placeholder="请详细描述此次外呼情况" name="memo"></textarea>
+						<input type="hidden" name="source_url" value="{{ request.META.HTTP_REFERER }}">
+						<input type="submit" value="保存" style="width: 60px;height: 30px;float: right;margin-bottom: 0px;"/>
+					</form>
+				</div>
+				<!--new call end-->
+			</div>
+			<!--call container end-->
+		</div>
+		<!--main container end-->		
+	</body>
+</html>

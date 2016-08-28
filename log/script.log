@@ -1,0 +1,42 @@
+2016-06-27 11:01:25,779 [Thread-2:4268] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-27 11:01:25,858 [Thread-3:7304] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-27 11:01:25,908 [Thread-4:7948] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-27 11:01:32,089 [Thread-7:7096] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-27 11:01:32,111 [Thread-8:5308] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-27 11:01:32,131 [Thread-9:2292] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-27 11:01:32,151 [Thread-10:8020] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-27 11:01:32,171 [Thread-11:6176] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-27 11:01:32,190 [Thread-12:2168] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-27 11:01:32,210 [Thread-13:6140] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-27 11:01:32,424 [Thread-14:3700] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-27 11:01:32,479 [Thread-15:5820] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-27 11:01:32,493 [Thread-16:5836] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-27 11:18:31,255 [Thread-19:3148] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-28 08:00:11,338 [Thread-16:2104] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-28 08:00:19,466 [Thread-18:4620] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /callsearchresult/
+Traceback (most recent call last):
+  File "E:\WorkSpace\blog_project_env\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\blog_project_env\lib\site-packages\django\contrib\auth\decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\djangoWeb\silence_project\silence\views.py", line 126, in callsearchresult
+    callList = getpage(request, Callhistory.objects.filter(imsi=username), 2)
+UnboundLocalError: local variable 'username' referenced before assignment
+2016-06-28 08:01:26,750 [Thread-19:4632] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-28 08:01:26,779 [Thread-20:3324] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-28 08:01:26,792 [Thread-21:4256] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-06-28 08:02:00,049 [Thread-5:924] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /callsearchresult/
+Traceback (most recent call last):
+  File "E:\WorkSpace\blog_project_env\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\blog_project_env\lib\site-packages\django\contrib\auth\decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\djangoWeb\silence_project\silence\views.py", line 126, in callsearchresult
+    callList = getpage(request, Callhistory.objects.filter(imsi=username), 2)
+UnboundLocalError: local variable 'username' referenced before assignment
+2016-06-28 15:23:59,247 [Thread-8:3800] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-07-15 11:31:51,068 [Thread-8:5572] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-07-15 11:32:41,408 [Thread-12:2256] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-07-15 11:53:43,726 [Thread-24:6340] [django.request:170] [base:get_response] [WARNING]- Not Found: /css/style.css
+2016-07-17 06:40:58,252 [Thread-4:824] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-07-20 06:31:28,190 [Thread-2:5192] [django.request:170] [base:get_response] [WARNING]- Not Found: /blog/index/

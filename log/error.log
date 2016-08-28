@@ -1,0 +1,2 @@
+2016-06-28 08:00:19,466 [Thread-18:4620] [silence.views:124] [views:callsearchresult] [ERROR]- invalid literal for int() with base 10: 'adfafd'
+2016-06-28 08:02:00,048 [Thread-5:924] [silence.views:124] [views:callsearchresult] [ERROR]- invalid literal for int() with base 10: 'a'
